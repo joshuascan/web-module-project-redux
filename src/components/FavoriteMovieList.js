@@ -3,8 +3,6 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 const FavoriteMovieList = (props) => {
-  console.log(props);
-
   return (
     <div className="col-xs savedContainer">
       <h5>Favorite Movies</h5>
