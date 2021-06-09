@@ -59,12 +59,16 @@ const Movie = (props) => {
               </section>
 
               <section>
-                <span
-                  onClick={() => handleAddFavorite(movie)}
-                  className="m-2 btn btn-dark"
-                >
-                  Favorite
-                </span>
+                {props.displayFavorites ? (
+                  <span
+                    onClick={() => handleAddFavorite(movie)}
+                    className="m-2 btn btn-dark"
+                  >
+                    Favorite
+                  </span>
+                ) : (
+                  <span></span>
+                )}
                 <span className="delete">
                   <input
                     type="button"
@@ -85,6 +89,7 @@ const Movie = (props) => {
 const mapStateToProps = (state) => {
   return {
     movies: state.movie.movies,
+    displayFavorites: state.favorite.displayFavorites,
   };
 };
 
