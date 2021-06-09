@@ -5,8 +5,9 @@ import { Link } from "react-router-dom";
 import { removeFavorite } from "../actions/favoriteActions";
 
 const FavoriteMovieList = (props) => {
-  const handleRemoveFavorite = (id) => {
-    props.removeFavorite(id);
+  const handleRemoveFavorite = (e) => {
+    e.preventDefault();
+    props.removeFavorite(Number(e.target.title));
   };
 
   return (
@@ -22,7 +23,8 @@ const FavoriteMovieList = (props) => {
               {movie.title}
               <span>
                 <span
-                  onClick={() => handleRemoveFavorite(movie.id)}
+                  title={movie.id}
+                  onClick={handleRemoveFavorite}
                   className="material-icons"
                 >
                   remove_circle
